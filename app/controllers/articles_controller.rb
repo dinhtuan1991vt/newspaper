@@ -5,14 +5,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
-  end
+    @article = Article.new
+  end 
   
   def create
-    author_id = params[:article][:author_id]
-    if !author_id.empty?
-      author = Author.find(author_id)
-      article = author.articles.create(params.require(:article).permit(:name, :text))
-    end
+    author = Author.find(params[:article][:author_id])
+    article = author.articles.create(params.require(:article).permit(:name, :text))
     redirect_to article
   end
 
