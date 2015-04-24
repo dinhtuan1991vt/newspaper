@@ -9492,3 +9492,964 @@ Processing by ArticlesController#index as HTML
   [1m[36mArticle Load (0.6ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
   Rendered articles/index.html.haml within layouts/application (1.9ms)
 Completed 200 OK in 68ms (Views: 67.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2015-04-24 14:55:38 +0700
+Processing by ArticlesController#new as HTML
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT `authors`.* FROM `authors`
+  Rendered articles/new.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 56ms (Views: 55.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2015-04-24 14:55:42 +0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yk3EazGXvfXCalji0xOOrtkGyllV8kFKU7HSbTFn7Yrs569/MvwW3klmS1gmqVfUaEd/WWqqFWoUiNzeMaF1lA==", "article"=>{"name"=>"sad", "text"=>"asd", "author_id"=>"3"}, "commit"=>"Save article"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+Unpermitted parameter: author_id
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `articles` (`name`, `text`, `author_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)[0m  [["name", "sad"], ["text", "asd"], ["author_id", 3], ["created_at", "2015-04-24 07:55:42"], ["updated_at", "2015-04-24 07:55:42"]]
+  [1m[35m (53.4ms)[0m  COMMIT
+Redirected to http://localhost:1111/articles/12
+Completed 302 Found in 59ms (ActiveRecord: 54.1ms)
+
+
+Started GET "/articles/12" for 127.0.0.1 at 2015-04-24 14:55:42 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = ?[0m  [["article_id", 12]]
+  Rendered articles/show.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 64ms (Views: 62.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 14:55:43 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.1ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  Rendered articles/index.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2015-04-24 14:55:47 +0700
+Processing by ArticlesController#new as HTML
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT `authors`.* FROM `authors`
+  Rendered articles/new.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 56ms (Views: 55.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2015-04-24 14:55:51 +0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n0m7yu9Sc8E7jtz0/ffb+c2212vfT3z7QUTQbdC0732549De7DnY6rCCz04ITQKDfPdia+AXKNsGfd7e0HJ3Yw==", "article"=>{"name"=>"fg", "text"=>"dfg", "author_id"=>"2"}, "commit"=>"Save article"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameter: author_id
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `articles` (`name`, `text`, `author_id`, `created_at`, `updated_at`) VALUES (?, ?, ?, ?, ?)[0m  [["name", "fg"], ["text", "dfg"], ["author_id", 2], ["created_at", "2015-04-24 07:55:51"], ["updated_at", "2015-04-24 07:55:51"]]
+  [1m[35m (81.9ms)[0m  COMMIT
+Redirected to http://localhost:1111/articles/13
+Completed 302 Found in 87ms (ActiveRecord: 82.6ms)
+
+
+Started GET "/articles/13" for 127.0.0.1 at 2015-04-24 14:55:51 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = ?[0m  [["article_id", 13]]
+  Rendered articles/show.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 63ms (Views: 61.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 14:55:52 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (3.3ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 14:56:33 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:33 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:33 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:33 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:34 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (2.6ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 14:56:44 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 14:57:14 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.3ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (5.0ms)
+Completed 200 OK in 72ms (Views: 70.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 14:57:15 +0700
+
+
+Started GET "/articles/12/edit" for 127.0.0.1 at 2015-04-24 14:57:36 +0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = ? LIMIT 1  [["id", 12]]
+  Rendered articles/edit.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (2.6ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.4ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:00:38 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.3ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 62ms (Views: 60.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:29 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:01:55 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:02:55 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:00 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:04:20 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (28.5ms)
+Completed 200 OK in 83ms (Views: 81.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/style.self-4e09de8a44e9f41bf808714a511dab76094ac88be9de36d24144ceb1b50779e1.css?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:08:54 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:09:55 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 100ms (Views: 99.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/style.self-edb516615c45e8ca1f2a3e370d68d95629103ee4e2a36666c23714e3d0fcecb4.css?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:09:56 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (5.3ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 67ms (Views: 60.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/style.self-edb516615c45e8ca1f2a3e370d68d95629103ee4e2a36666c23714e3d0fcecb4.css?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:10:44 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.4ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 96ms (Views: 95.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/style.self-6acb99b89ace646f5faa789833170f5064e86dd19c6f6414d33febe26b96b224.css?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:11:32 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:12:18 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (3.1ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 115ms (Views: 111.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/style.self-77e8ee2aedff233066fdca16c6095c46eaa226528c2134fe43f3630b507e95d4.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:19 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 99ms (Views: 97.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/style.self-8b7aae5159e77a954602a84796a3071bec9021f667e29696aeed1321399c967f.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:32 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:12:42 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 103ms (Views: 101.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/style.self-701ae8fd4c5e9f76c0c9ca0d0c0fe80faec419270bc82c347291a477e8388cd1.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:43 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.0ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.7ms)
+Completed 200 OK in 116ms (Views: 114.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:12:50 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.9ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 59ms (Views: 57.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:05 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:13:25 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (3.7ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 62ms (Views: 57.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:04 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.0ms)[0m  SELECT `articles`.* FROM `articles`
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 65ms (Views: 63.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:21 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 15:14:51 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/index.html.haml within layouts/application (29.8ms)
+Completed 200 OK in 94ms (Views: 93.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.min.self-2c354d7c0179bd35563b93633b23ac5fb07c67d531d40a75695bacbd0eadb799.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:51 +0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:51 +0700
+
+
+Started GET "/assets/style.self-49db1a92128cad33b614d6f4433e4f6971f5409a12d6729cedf4b5e055b32611.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/bootstrap.self-1b2106e2c41fcb513369ff599bd566501e08088288b914c2af8ef2e5c9acd29d.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/jquery.min.self-3b980a22cc7f1242cdc4eb4dc9fbdd7912920de0fac9d556369c02f85d2db918.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started GET "/assets/script.self-e9297ab855353f85d5a732805b6cdab014ae2399e838970c6e1da2d36c9f64c4.js?body=1" for 127.0.0.1 at 2015-04-24 15:14:52 +0700
+
+
+Started DELETE "/articles/13" for 127.0.0.1 at 2015-04-24 15:15:00 +0700
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pCe5crtDcuI9Tj3G4mE6Js+HnQ8EXzoiKdZmSY2PpNWCjdJmuCjZybZCLnwX2+NcfsYoDzsHbgJu72j6jUk8yw==", "id"=>"13"}
+  [1m[35mArticle Load (2.0ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = ? LIMIT 1  [["id", 13]]
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `comments` SET `comments`.`article_id` = NULL WHERE `comments`.`article_id` = ?  [["article_id", 13]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `articles` WHERE `articles`.`id` = ?[0m  [["id", 13]]
+  [1m[35m (151.6ms)[0m  COMMIT
+Redirected to http://localhost:1111/articles
+Completed 302 Found in 158ms (ActiveRecord: 154.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-04-24 15:15:01 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.4ms)[0m  [1mSELECT `articles`.* FROM `articles`[0m
+  [1m[35mAuthor Load (1.3ms)[0m  SELECT  `authors`.* FROM `authors` WHERE `authors`.`id` = ? LIMIT 1  [["id", 3]]
+  Rendered articles/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 2.7ms)
