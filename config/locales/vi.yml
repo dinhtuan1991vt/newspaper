@@ -1,0 +1,11 @@
+vi:
+  create_article: Tạo bài viết
+  edit: Sửa
+  delete: Xóa
+  post_text: Đăng bởi %{author} vào ngày %{time}
+  name: Tên
+  text: Nội dung
+  author: Tác giả
+  save_article: Lưu bài viết
+  save_comment: Lưu comment
+  select_author: Chọn tác giả

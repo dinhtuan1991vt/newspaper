@@ -1,7 +1,8 @@
 %h4= @article.name
 - if !@article.created_at.nil?
     %div.entry
-        %div.post-date posted on #{@article.created_at.strftime("%d/%m/%y")} by #{@article.author.name}
+        %div.post-date
+            = t('post_text', time: @article.created_at.strftime("%d/%m/%y"), author: @article.author.name)
 %p= @article.text
 
 %h3 #{@comments.length} Comments:
@@ -12,4 +13,4 @@
 = form_tag comment_path do
     %div.form-group
         = text_area_tag 'text', nil, required: true
-    = submit_tag "Save comment", class:"btn btn-default"
+    = submit_tag t('save_comment'), class:"btn btn-default"
