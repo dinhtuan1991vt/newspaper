@@ -1,14 +1,2 @@
 = link_to t('create_article'), new_article_path, class: "btn btn-danger"
-- @articles.each do |article|
-  %div.article
-    %div.col-md-12
-      %h4.col-md-10
-        = link_to article.name, article
-      %span.pull-right
-        = link_to t('edit'), edit_article_path(id: article.id)
-        = link_to t('delete'), article, method: :delete, class: "delete-post"
-    - if !article.created_at.nil?
-      %div.entry.col-md-12
-        %div.post-date
-          = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
-    %p= article.text
+= render partial: "articles", locals: {articles: @articles}

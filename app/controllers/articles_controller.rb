@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def new
   end
-
+  
   def create
     author_id = params[:article][:author_id]
     if !author_id.empty?
