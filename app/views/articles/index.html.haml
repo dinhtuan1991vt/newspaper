@@ -1,3 +1,7 @@
 - @articles.each do |article|
-  %h1= article.name
-  %p= article.text
+  %div.article
+    %h4= article.name
+    - if !article.created_at.nil?
+      %div.entry
+        %div.post-date posted on #{article.created_at.strftime("%d/%m/%y")}
+    %p= article.text

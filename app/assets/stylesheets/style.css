@@ -2,3 +2,23 @@ body {
   min-height: 2000px;
   padding-top: 70px;
 }
+
+.post-date {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.entry {
+  margin-bottom: 10px;
+  font-size: 11px;
+  padding: 6px 0px;
+  overflow: hidden;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+
+.article {
+  padding: 0 0 24px 0;
+  overflow: hidden;
+  margin: 0 0 36px 0;
+}
