@@ -1,0 +1,30 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 09:56:05 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nuspc/.rvm/gems/ruby-2.1.5/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 58ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 09:57:25 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nuspc/.rvm/gems/ruby-2.1.5/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 09:57:26 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nuspc/.rvm/gems/ruby-2.1.5/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 09:57:26 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nuspc/.rvm/gems/ruby-2.1.5/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-24 09:57:26 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nuspc/.rvm/gems/ruby-2.1.5/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
