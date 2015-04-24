@@ -3,3 +3,13 @@
     %div.entry
         %div.post-date posted on #{@article.created_at.strftime("%d/%m/%y")} by #{@article.author.name}
 %p= @article.text
+
+%h3 #{@comments.length} Comments:
+- @comments.each do |comment|
+    %div.entry
+        %p #{comment.text}
+
+= form_tag comment_path do
+    %div.form-group
+        = text_area_tag 'text', nil, required: true
+    = submit_tag "Save comment", class:"btn btn-default"

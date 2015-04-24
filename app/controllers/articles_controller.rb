@@ -17,5 +17,15 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments
+  end
+
+  def comment
+    article_id = params[:id]
+    if !article_id.empty?
+      article = Article.find(article_id)
+      comment = article.comments.create(text: params[:text])
+      redirect_to article
+    end
   end
 end
