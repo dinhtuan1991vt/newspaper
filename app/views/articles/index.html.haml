@@ -1,8 +1,12 @@
 = link_to "Create Article", new_article_path, class: "btn btn-danger"
 - @articles.each do |article|
   %div.article
-    %h4
-      = link_to article.name, article
+    %div
+      %h4
+        = link_to article.name, article
+      %span.pull-right
+        = link_to "Edit", edit_article_path(id: article.id)
+        = link_to "Delete", article, method: :delete, class: "delete-post"
     - if !article.created_at.nil?
       %div.entry
         %div.post-date posted on #{article.created_at.strftime("%d/%m/%y")} by #{article.author.name}
