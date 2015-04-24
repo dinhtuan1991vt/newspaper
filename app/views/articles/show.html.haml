@@ -10,7 +10,7 @@
     %div.entry
         %p #{comment.text}
 
-= form_tag comment_path do
+= form_tag article_comments_path(@article) do
     %div.form-group
         = text_area_tag 'text', nil, required: true
     = submit_tag t('save_comment'), class:"btn btn-default"
