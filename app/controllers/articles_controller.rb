@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   def create
     author = Author.find(params[:article][:author_id])
-    @article = author.articles.create(params.require(:article).permit(:name, :text))
+    @article = author.articles.create(article_params)
 
     respond_to do |format|
       format.js   {}
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
   def update
     article = Article.find(params[:id])
-    article.update_attributes(params.require(:article).permit(:name, :text))
+    article.update_attributes(article_params)
 
     redirect_to action: "index"
   end
@@ -35,9 +35,14 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-     @article = Article.find(params[:id])
-     @article.destroy
+    article = Article.find(params[:id])
+    @id = params[:id]
+    article.destroy
 
-     redirect_to action: "index"
   end
+
+  private
+    def article_params
+      params.require(:article).permit(:name, :text)
+    end
 end
