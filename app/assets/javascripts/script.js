@@ -1,3 +1,3 @@
 function readmore(elm, content) {
-  $(elm).parent().find("p").html(content);
+  $(elm).parent().find("p.text").html(content);
 }

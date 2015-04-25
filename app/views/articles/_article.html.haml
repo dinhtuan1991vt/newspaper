@@ -10,12 +10,22 @@
       %div.post-date
         = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
   - if article.text.length > 20
-    %p
+    %p.text
       = truncate(article.text, length: 20)
-    = link_to "Read more", "javascript:void(0)", id: "read-more-#{article.id}", onclick: "readmore(this, '#{article.text}')"
+    = link_to "Read more", "javascript:void(0)", onclick: "readmore(this, '#{article.text}')"
   - else
     %p
       = article.text
+  %p
+    = link_to "#{article.comments.count} comments", "javascript:void(0)", data: {toggle:"collapse", target:"#new-comment-#{article.id}"}
+
+  %div.collapse{:id => "new-comment-#{article.id}"}
+    %div{:id => "comments-#{article.id}"}
+      = render partial: "comment", collection: article.comments
+    = form_tag article_comments_path(article), remote: true do
+      %div.form-group
+        = text_area_tag 'text', nil, required: true
+      = button_to t('save_comment'), remote: true, class:"btn btn-default"
 
   %div.collapse{:id => "edit-article-#{article.id}"}
     = form_for article, remote:true do |f|

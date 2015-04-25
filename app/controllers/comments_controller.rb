@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    article = Article.find(params[:article_id])
-    comment = article.comments.create(text: params[:text])
-    redirect_to article
+    @id = params[:article_id]
+    article = Article.find(@id)
+    @comment = article.comments.create(text: params[:text])
   end
 end
-  	
+
