@@ -17,7 +17,7 @@
     %p
       = article.text
   %p
-    = link_to "#{article.comments.count} comments", "javascript:void(0)", data: {toggle:"collapse", target:"#new-comment-#{article.id}"}
+    = link_to raw("<span id='num-comments-#{article.id}'>#{article.comments.count}</span> comments"), "javascript:void(0)", data: {toggle:"collapse", target:"#new-comment-#{article.id}"}
 
   %div.collapse{:id => "new-comment-#{article.id}"}
     %div{:id => "comments-#{article.id}"}
