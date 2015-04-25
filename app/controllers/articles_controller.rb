@@ -13,11 +13,6 @@ class ArticlesController < ApplicationController
   def create
     author = Author.find(params[:article][:author_id])
     @article = author.articles.create(article_params)
-
-    respond_to do |format|
-      format.js   {}
-      format.json { render json: @article }
-    end
   end
 
   def edit

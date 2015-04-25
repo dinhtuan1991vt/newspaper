@@ -9,7 +9,13 @@
     %div.entry.col-md-12
       %div.post-date
         = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
-  %p= article.text
+  - if article.text.length > 20
+    %p
+      = truncate(article.text, length: 20)
+    = link_to "Read more", "javascript:void(0)", id: "read-more-#{article.id}", onclick: "readmore(this, '#{article.text}')"
+  - else
+    %p
+      = article.text
 
   %div.collapse{:id => "edit-article-#{article.id}"}
     = form_for article, remote:true do |f|

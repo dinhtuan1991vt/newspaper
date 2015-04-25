@@ -1,5 +1,3 @@
-$(document).ready(function() {
-  $(".delete-post").click(function() {
-    return confirm("Are you sure to delete this post?");
-  });
-});
+function readmore(elm, content) {
+  $(elm).parent().find("p").html(content);
+}
