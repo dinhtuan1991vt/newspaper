@@ -1,17 +1,21 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
-    @test = "Hello"
+    @article = Article.new
   end
 
   def new
     @article = Article.new
-  end 
-  
+  end
+
   def create
     author = Author.find(params[:article][:author_id])
-    article = author.articles.create(params.require(:article).permit(:name, :text))
-    redirect_to article
+    @article = author.articles.create(params.require(:article).permit(:name, :text))
+
+    respond_to do |format|
+      format.js   {}
+      format.json { render json: @article }
+    end
   end
 
   def edit

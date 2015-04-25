@@ -1,2 +1,15 @@
-= link_to t('create_article'), new_article_path, class: "btn btn-danger"
-= render partial: "articles", locals: {articles: @articles}
+= link_to t('create_article'), "javascript:void(0)", class: "btn btn-danger", data: {toggle:"collapse", target:"#new-article"}
+%div#new-article.collapse
+  = form_for @article, remote:true do |f|
+    %div.form-group
+      = f.label :name, t('name')
+      = f.text_field :name, class:"form-control", required: true
+    %div.form-group
+      = f.label :text, t('text')
+      = f.text_area :text, class:"form-control", required: true
+    %div.form-group
+      = f.label :author_id, t('author')
+      = collection_select(:article, :author_id, Author.all, :id, :name, {prompt: t('select_author')}, {class: "form-control", required: true})
+    = button_to t('save_article'), @article, remote: true, class:"btn btn-default"
+%div#articles
+  = render @articles
