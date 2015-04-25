@@ -3,10 +3,20 @@
     %h4.col-md-10
       = link_to article.name, article
     %span.pull-right
-      = link_to t('edit'), edit_article_path(id: article.id)
+      = link_to t('edit'), "javascript:void(0)", data: {toggle:"collapse", target:"#edit-article-#{article.id}"}
       = link_to t('delete'), article, method: :delete, data: { confirm: 'Are you sure to delete this article?', remote: true }
   - if !article.created_at.nil?
     %div.entry.col-md-12
       %div.post-date
         = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
   %p= article.text
+
+  %div.collapse{:id => "edit-article-#{article.id}"}
+    = form_for article, remote:true do |f|
+      %div.form-group
+        = f.label :name, t('name')
+        = f.text_field :name, class:"form-control", required: true
+      %div.form-group
+        = f.label :text, t('text')
+        = f.text_area :text, class:"form-control", required: true
+      = button_to t('save_article'), article, remote: true, class:"btn btn-default"
