@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'bootstrap.min' %>
     <%= stylesheet_link_tag   'style' %>
-    <%= javascript_include_tag 'bootstrap', 'jquery.min', 'script' %>
+    <%= javascript_include_tag 'jquery.min', 'script' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -17,12 +17,25 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="?locale=en">English</a></li>
               <li><a href="?locale=vi">Tiếng Việt</a></li>
+              <% if author_signed_in? %>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= current_author.name %> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                          <%= link_to 'Log out', destroy_author_session_path, :method => :delete %>
+                        </li>
+                    </ul>
+                </li>
+              <% end %>
             </ul>
         </div>
 
     </nav>
     <div class="container">
-    <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

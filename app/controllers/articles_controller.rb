@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:edit, :update, :show, :destroy]
-
+  before_action :authenticate_author!
   def index
     @articles = Article.all
     @article = Article.new

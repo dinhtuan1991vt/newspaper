@@ -29,6 +29,8 @@ gem 'haml', '~> 4.0.6'
 
 gem 'i18n-js', '>= 3.0.0.rc8'
 
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
