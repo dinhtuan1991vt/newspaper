@@ -31,6 +31,8 @@ gem 'i18n-js', '>= 3.0.0.rc8'
 
 gem 'devise'
 
+gem 'rspec-rails', '~> 3.2.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
