@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_author!
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order("id desc")
     @article = Article.new
   end
 
@@ -15,6 +15,11 @@ class ArticlesController < ApplicationController
   def create
     author = AuthorService.new().get_author(params[:article][:author_id])
     @article = get_article_service.create_article(author, get_article_params)
+    respond_to do |format|
+       format.json {
+        render :json => @article.to_json(:methods => [:avatar_url])
+       }
+    end
   end
 
   def edit
@@ -38,7 +43,7 @@ class ArticlesController < ApplicationController
     end
 
     def get_article_params
-      params.require(:article).permit(:name, :text)
+      params.require(:article).permit(:name, :text, :avatar)
     end
 
     def get_id_param

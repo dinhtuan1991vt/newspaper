@@ -7,8 +7,24 @@
 
     <%= stylesheet_link_tag    'bootstrap.min' %>
     <%= stylesheet_link_tag   'style' %>
-    <%= javascript_include_tag 'jquery.min', 'script' %>
+    <%= javascript_include_tag 'jquery.min', 'script', 'jquery.tmpl.js' %>
     <%= csrf_meta_tags %>
+    <script type="text/html" id="article-template">
+      <div id="article-${id}">
+        <div class="col-md-12">
+          <h4 class="col-md-10">
+            <a href="/articles/${id}">${name}</a>
+          </h4>
+          <span class="pull-right">
+            <a data-toggle="collapse" data-target="#edit-article-${id}" href="javascript:void(0)">Edit</a>
+            <a data-confirm="Are you sure to delete this article?" data-remote="true" rel="nofollow" data-method="delete" href="/articles/${id}">Delete</a>
+          </span>
+        </div>
+
+        <img src="${avatar_url}">
+        <p>${text}</p>
+      </div>
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-default">
