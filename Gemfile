@@ -35,6 +35,7 @@ gem 'rspec-rails', '~> 3.2.1'
 gem 'factory_girl_rails'
 gem 'faker'
 gem "paperclip", "~> 4.2"
+gem 'delayed_job_active_record'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

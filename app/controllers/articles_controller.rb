@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   def create
     author = AuthorService.new().get_author(params[:article][:author_id])
     @article = get_article_service.create_article(author, get_article_params)
+    ArticleMailer.delay(:queue => 'mailer').welcome_email
     respond_to do |format|
        format.json {
         render :json => @article.to_json(:methods => [:avatar_url])
