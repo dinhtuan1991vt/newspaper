@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:edit, :update, :show, :destroy]
+  before_action :get_id_param, only: [:update, :destroy]
   before_action :authenticate_author!
+
   def index
     @articles = Article.all
     @article = Article.new
@@ -11,17 +13,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    author = Author.find(params[:article][:author_id])
-    @article = author.articles.create(article_params)
+    author = AuthorService.new().get_author(params[:article][:author_id])
+    @article = get_article_service.create_article(author, get_article_params)
   end
 
   def edit
-
   end
 
   def update
-    @article.update_attributes(article_params)
-    @id = params[:id]
+    get_article_service.update_article(@article, get_article_params)
   end
 
   def show
@@ -29,16 +29,25 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @id = params[:id]
-    @article.destroy
+    get_article_service.destroy_article(@article)
   end
 
   private
-    def article_params
+    def get_article_service
+      article_service = ArticleService.new()
+    end
+
+    def get_article_params
       params.require(:article).permit(:name, :text)
     end
 
+    def get_id_param
+      @id = params[:id]
+    end
+
     def get_article
-      @article = Article.find(params[:id])
+      @article = get_article_service.get_article(params[:id])
+
+      redirect_to root_url if @article.nil?
     end
 end
