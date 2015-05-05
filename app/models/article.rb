@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
 
+  mount_uploader :image, ImageUploader
+
   def avatar_url
       avatar.url(:thumb)
   end

@@ -8,8 +8,11 @@
       = f.label :text, t('text')
       = f.text_area :text, class:"form-control", required: true
     %div.form-group
-      = f.label :avatar, 'File'
+      = f.label :avatar, 'Avatar'
       = f.file_field :avatar
+    %div.form-group
+      = f.label :image, 'Image'
+      = f.file_field :image
     %div.form-group
       = f.label :author_id, t('author')
       = collection_select(:article, :author_id, Author.all, :id, :name, {prompt: t('select_author')}, {class: "form-control", required: true})
