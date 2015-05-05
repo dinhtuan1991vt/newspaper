@@ -10,7 +10,7 @@
       %div.post-date
         = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
 
-  = image_tag article.avatar.url(:thumb)
+  = image_tag article.image_url
   - if article.text.length > 20
     %p.text
       = truncate(article.text, length: 20)

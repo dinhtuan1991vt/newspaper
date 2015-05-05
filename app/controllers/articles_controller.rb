@@ -15,10 +15,10 @@ class ArticlesController < ApplicationController
   def create
     author = AuthorService.new().get_author(params[:article][:author_id])
     @article = get_article_service.create_article(author, get_article_params)
-    ArticleMailer.delay(:queue => 'mailer').welcome_email
+    #ArticleMailer.delay(:queue => 'mailer').welcome_email
     respond_to do |format|
        format.json {
-        render :json => @article.to_json(:methods => [:avatar_url])
+        render :json => @article.to_json(:methods => [:image_url])
        }
     end
   end
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
     end
 
     def get_article_params
-      params.require(:article).permit(:name, :text, :avatar)
+      params.require(:article).permit(:name, :text, :image)
     end
 
     def get_id_param
