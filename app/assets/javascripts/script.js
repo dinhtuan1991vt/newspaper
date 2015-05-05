@@ -2,25 +2,23 @@ function readmore(elm, content) {
   $(elm).parent().find("p.text").html(content);
 }
 
-function validateSize(elm, maxSize) {
-  var size = $(elm)[0].files[0].size;
-  return size <= maxSize * 1024 * 1024;
-}
-
 $(document).ready(function() {
+  $.validator.addMethod('filesize', function(value, element, param) {
+      return this.optional(element) || (element.files[0].size <= param) 
+  }, "File too large."); 
+
   $("#new_article").validate({
     rules: {
       "article[image]": {
-        required: true,
-        accept: "image/*"
+        accept: "image/*",
+        filesize: 5242880
+      },
+      "article[video]": {
+        accept: "video/*",
+        filesize: 31457280
       }
     },
-    submitHandler: function(form) {
-      if (!validateSize("#article_image", 5)) {
-        alert("File size must <= 5MB");
-        return false;
-      }
-
+    submitHandler: function(form) { 
       var formData = new FormData($(form)[0]);
       $.ajax({
         url: $(form).attr("action"),
