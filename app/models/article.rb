@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  paginates_per 5
   belongs_to :author
   has_many :comments, dependent: :nullify
   validates :name, length: { maximum: 255 }
