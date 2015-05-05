@@ -16,4 +16,6 @@
     = button_to t('save_article'), @article, class:"btn btn-default"
 %div#articles
   = render @articles
+%div.digg_pagination
+  = will_paginate @articles
 

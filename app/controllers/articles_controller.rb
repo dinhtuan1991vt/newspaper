@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_author!
 
   def index
-    @articles = Article.all.order("id desc")
+    @articles = Article.order("id desc").paginate(:page => params[:page], :per_page => 3)
     @article = Article.new
   end
 
