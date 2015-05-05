@@ -36,6 +36,7 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

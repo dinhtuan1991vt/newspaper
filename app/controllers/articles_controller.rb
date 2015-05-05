@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
     end
 
     def get_article_params
-      params.require(:article).permit(:name, :text, :avatar, :image)
+      params.require(:article).permit(:name, :text, :avatar)
     end
 
     def get_id_param
