@@ -1,4 +1,10 @@
 vi:
+  devise:
+    failure:
+      unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục"
+      invalid: "Sai tên đăng nhập hoặc mật khẩu."
+    sessions:
+      signed_in: "Đăng nhập thành công."
   create_article: Tạo bài viết
   edit: Sửa
   delete: Xóa
