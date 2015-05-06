@@ -37,6 +37,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cancan'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :test, :development do
   gem 'cucumber-rails', :require => false
