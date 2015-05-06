@@ -12,7 +12,7 @@
 
   = image_tag article.image_url
   %p
-  - if !article.video.nil?
+  - if !article.video.url.nil?
     = video_tag(article.video.url, controls: true)
   - if article.text.length > 20
     %p.text
