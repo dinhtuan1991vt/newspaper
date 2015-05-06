@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  load_and_authorize_resource except: [:create]
   before_action :get_article, only: [:edit, :update, :show, :destroy]
   before_action :get_id_param, only: [:update, :destroy]
   before_action :authenticate_author!

@@ -14,4 +14,10 @@ class Author < ActiveRecord::Base
 	    where(conditions.to_h).first
 	  end
 	end
+
+  def admin?
+    role == "admin"
+  end
+
+  ROLES = %w[admin author]
 end
