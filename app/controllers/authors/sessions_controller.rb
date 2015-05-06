@@ -18,7 +18,7 @@ class Authors::SessionsController < Devise::SessionsController
 
     if session[:login_attempts].to_i >= 1
       if not verify_recaptcha
-        flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."
+        flash[:alert] = t('.incorrect_captcha')
         flash.delete :recaptcha_error
         return redirect_to new_author_session_url
       end

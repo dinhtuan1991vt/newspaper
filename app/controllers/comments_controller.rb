@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @id = params[:article_id]
     article = ArticleService.new().get_article(@id)
     @comment = CommentService.new().create_comment(article, params)
-    @num = article.comments.size.to_s
+    @num = t('articles.index.comment', :count => article.comments.count)
   end
 end
 

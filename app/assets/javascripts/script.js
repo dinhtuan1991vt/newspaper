@@ -32,6 +32,8 @@ $(document).ready(function() {
           $("#article-template").tmpl(data).prependTo("#articles");
         }
       });
+
+      return false;
     }
   });
 });

@@ -16,8 +16,8 @@
             <a href="/articles/${id}">${name}</a>
           </h4>
           <span class="pull-right">
-            <a data-toggle="collapse" data-target="#edit-article-${id}" href="javascript:void(0)">Edit</a>
-            <a data-confirm="Are you sure to delete this article?" data-remote="true" rel="nofollow" data-method="delete" href="/articles/${id}">Delete</a>
+            <a data-toggle="collapse" data-target="#edit-article-${id}" href="javascript:void(0)"><%= t('articles.index.edit') %></a>
+            <a data-confirm="Are you sure to delete this article?" data-remote="true" rel="nofollow" data-method="delete" href="/articles/${id}"><%= t('articles.index.delete') %></a>
           </span>
         </div>
 

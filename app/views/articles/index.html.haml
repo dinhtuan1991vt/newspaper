@@ -1,22 +1,22 @@
-= link_to t('create_article'), "javascript:void(0)", class: "btn btn-danger", data: {toggle:"collapse", target:"#new-article"}
+= link_to t('.create_article'), "javascript:void(0)", class: "btn btn-danger", data: {toggle:"collapse", target:"#new-article"}
 %div#new-article.collapse
   = form_for @article, :html => { :multipart => true } do |f|
     %div.form-group
-      = f.label :name, t('name')
+      = f.label :name, t('.name')
       = f.text_field :name, class:"form-control", required: true
     %div.form-group
-      = f.label :text, t('text')
+      = f.label :text, t('.text')
       = f.text_area :text, class:"form-control", required: true
     %div.form-group
-      = f.label :image, t('image')
+      = f.label :image, t('.image')
       = f.file_field :image
     %div.form-group
-      = f.label :video, t('video')
+      = f.label :video, t('.video')
       = f.file_field :video
     %div.form-group
-      = f.label :author_id, t('author')
+      = f.label :author_id, t('.author')
       = collection_select(:article, :author_id, Author.all, :id, :name, {prompt: t('select_author')}, {class: "form-control", required: true})
-    = button_to t('save_article'), @article, class:"btn btn-default"
+    = button_to t('.save_article'), @article, class:"btn btn-default"
 %div#articles
   = render @articles
 %div.digg_pagination

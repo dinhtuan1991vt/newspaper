@@ -3,19 +3,32 @@ vi:
     failure:
       unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục"
       invalid: "Sai tên đăng nhập hoặc mật khẩu."
-      last_attempt: "Bạn còn 1 lần đăng nhập nữa trước khi bị khóa."
       locked: "Tài khoản của bạn đã bị khóa."
     sessions:
       signed_in: "Đăng nhập thành công."
-  create_article: Tạo bài viết
-  edit: Sửa
-  delete: Xóa
-  post_text: Đăng bởi %{author} vào ngày %{time}
-  name: Tên
-  text: Nội dung
-  author: Tác giả
-  save_article: Lưu bài viết
-  save_comment: Lưu comment
-  select_author: Chọn tác giả
-  image: Hình ảnh
-  video: Video
+
+  authors:
+    sessions:
+      new:
+        log_in: "Đăng nhập"
+        username: "Tên đăng nhập"
+        password: "Mật khẩu"
+      create:
+        incorrect_captcha: "Sai captcha."
+
+  articles:
+    index:
+      create_article: Tạo bài viết
+      edit: Sửa
+      delete: Xóa
+      post_text: Đăng bởi %{author} vào ngày %{time}
+      name: Tên
+      text: Nội dung
+      author: Tác giả
+      save_article: Lưu bài viết
+      save_comment: Lưu bình luận
+      select_author: Chọn tác giả
+      image: Hình ảnh
+      video: Video
+      comment:
+        other: "%{count} bình luận"

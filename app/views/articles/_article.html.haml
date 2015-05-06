@@ -3,12 +3,12 @@
     %h4.col-md-10
       = link_to article.name, article
     %span.pull-right
-      = link_to t('edit'), "javascript:void(0)", data: {toggle:"collapse", target:"#edit-article-#{article.id}"}
-      = link_to t('delete'), article, method: :delete, data: { confirm: 'Are you sure to delete this article?', remote: true }
+      = link_to t('articles.index.edit'), "javascript:void(0)", data: {toggle:"collapse", target:"#edit-article-#{article.id}"}
+      = link_to t('articles.index.delete'), article, method: :delete, data: { confirm: 'Are you sure to delete this article?', remote: true }
   - if !article.created_at.nil?
     %div.entry.col-md-12
       %div.post-date
-        = t('post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
+        = t('articles.index.post_text', time: article.created_at.strftime("%d/%m/%y"), author: article.author.name)
 
   = image_tag article.image_url
   %p
@@ -22,7 +22,9 @@
     %p
       = article.text
   %p
-    = link_to raw("<span id='num-comments-#{article.id}'>#{article.comments.count}</span> comments"), "javascript:void(0)", data: {toggle:"collapse", target:"#new-comment-#{article.id}"}
+    %a{"data-toggle" => "collapse", "data-target" => "#new-comment-#{article.id}", href: "javascript:void(0)"}
+      %span{id: "num-comments-#{article.id}"}
+        = t('articles.index.comment', :count => article.comments.count)
 
   %div.collapse{:id => "new-comment-#{article.id}"}
     %div{:id => "comments-#{article.id}"}
@@ -30,7 +32,7 @@
     = form_tag article_comments_path(article), remote: true do
       %div.form-group
         = text_area_tag 'text', nil, required: true
-      = button_to t('save_comment'), remote: true, class:"btn btn-default"
+      = button_to t('articles.index.save_comment'), remote: true, class:"btn btn-default"
 
   %div.collapse{:id => "edit-article-#{article.id}"}
     = form_for article, remote:true do |f|
@@ -40,4 +42,4 @@
       %div.form-group
         = f.label :text, t('text')
         = f.text_area :text, class:"form-control", required: true
-      = button_to t('save_article'), article, remote: true, class:"btn btn-default"
+      = button_to t('articles.index.save_article'), article, remote: true, class:"btn btn-default"
