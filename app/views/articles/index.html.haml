@@ -12,7 +12,7 @@
       = f.file_field :image
     %div.form-group
       = f.label :video, t('video')
-      = f.file_field :video 
+      = f.file_field :video
     %div.form-group
       = f.label :author_id, t('author')
       = collection_select(:article, :author_id, Author.all, :id, :name, {prompt: t('select_author')}, {class: "form-control", required: true})
@@ -20,5 +20,5 @@
 %div#articles
   = render @articles
 %div.digg_pagination
-  = paginate @articles
+  = paginate @articles, :remote => true
 
