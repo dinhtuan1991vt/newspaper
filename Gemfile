@@ -38,6 +38,13 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'cancan'
 
+group :test, :development do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
