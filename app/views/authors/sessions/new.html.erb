@@ -11,14 +11,16 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
+  <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
-  <% end -%>
+  <% end %>
 
-  <%= recaptcha_tags %>
+  <% if session[:login_attempts] && session[:login_attempts].to_i >= 1 %>
+    <%= recaptcha_tags %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Log in" %>
