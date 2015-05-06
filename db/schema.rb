@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506023229) do
+ActiveRecord::Schema.define(version: 20150506074245) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -41,9 +41,13 @@ ActiveRecord::Schema.define(version: 20150506023229) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "role",                   limit: 255
+    t.integer  "failed_attempts",        limit: 4,   default: 0
+    t.string   "unlock_token",           limit: 255
+    t.datetime "locked_at"
   end
 
   add_index "authors", ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true, using: :btree
+  add_index "authors", ["unlock_token"], name: "index_authors_on_unlock_token", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "text",       limit: 65535
