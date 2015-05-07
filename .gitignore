@@ -17,7 +17,7 @@
 /tmp
 .log
 /.idea
-/config/secrets.yml
+
 *.DS_Store
 *.log
 *.pid
