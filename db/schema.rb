@@ -13,36 +13,39 @@
 
 ActiveRecord::Schema.define(version: 20150506074245) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.text     "text",               limit: 65535
-    t.integer  "author_id",          limit: 4
+    t.string   "name"
+    t.text     "text"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "video",              limit: 255
+    t.string   "video"
   end
 
   add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
-    t.string   "name",                   limit: 255
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "name"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "role",                   limit: 255
-    t.integer  "failed_attempts",        limit: 4,   default: 0
-    t.string   "unlock_token",           limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "role"
+    t.integer  "failed_attempts",        default: 0
+    t.string   "unlock_token"
     t.datetime "locked_at"
   end
 
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 20150506074245) do
   add_index "authors", ["unlock_token"], name: "index_authors_on_unlock_token", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.text     "text",       limit: 65535
-    t.integer  "article_id", limit: 4
+    t.text     "text"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,15 +62,15 @@ ActiveRecord::Schema.define(version: 20150506074245) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   limit: 4,     default: 0, null: false
-    t.integer  "attempts",   limit: 4,     default: 0, null: false
-    t.text     "handler",    limit: 65535,             null: false
-    t.text     "last_error", limit: 65535
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by",  limit: 255
-    t.string   "queue",      limit: 255
+    t.string   "locked_by"
+    t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

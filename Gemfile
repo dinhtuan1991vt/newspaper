@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'mysql2'
 gem 'haml', '~> 4.0.6'
 gem 'i18n-js', '>= 3.0.0.rc8'
 gem 'devise'
@@ -38,6 +37,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'cancan'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'pg', '~> 0.18.1'
 
 group :test, :development do
   gem 'cucumber-rails', :require => false
