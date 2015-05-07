@@ -15,5 +15,5 @@ When(/^I wait for (\d+) seconds$/) do |n|
 end
 
 Then(/^page have message "(.*?)"$/) do |field|
-  page.should have_selector ".notice", text: "Signed in successfully."
+  expect(page).to have_selector ".notice", text: "Signed in successfully."
 end

@@ -2,19 +2,19 @@ class Authors::SessionsController < Devise::SessionsController
   def create
     login_param = params[:author][:login]
     author = Author.find_by_name(login_param) || Author.find_by_email(login_param)
-    if author.locked_at
+    if author && author.locked_at
       flash[:alert] = t('devise.failure.locked')
       return redirect_to new_author_session_url
-    end  
+    end
 
     failed_login_email_session = session[:failed_login_email] || ""
-    login_attempts_session = session[:login_attempts] || 0   
-    
+    login_attempts_session = session[:login_attempts] || 0
+
 
     if failed_login_email_session != "" && failed_login_email_session != login_param
       session[:failed_login_email] = ""
       session[:login_attempts] = 0
-    end  
+    end
 
     if session[:login_attempts].to_i >= 1
       if not verify_recaptcha
@@ -23,7 +23,7 @@ class Authors::SessionsController < Devise::SessionsController
         return redirect_to new_author_session_url
       end
     end
-    
+
     self.resource = warden.authenticate!(auth_options)
     # Login successfully
     session[:failed_login_email] = ""
@@ -47,13 +47,13 @@ class Authors::SessionsController < Devise::SessionsController
       if author
         author.locked_at = Time.now.utc
         author.save
-      end  
-    end  
+      end
+    end
 
     build_resource(sign_in_params)
     clean_up_passwords(resource)
     render :new
-  end  
+  end
 
   def sign_in_params
     devise_parameter_sanitizer.sanitize(:sign_in)
