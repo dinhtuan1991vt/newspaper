@@ -38,6 +38,16 @@ gem 'mini_magick'
 gem 'cancan'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'pg', '~> 0.18.1'
+gem 'highline', '~> 1.7.2'
+gem 'sqlite3'
+
+group :development do
+  gem 'capistrano-rails', '~> 1.1.1'
+end
+
+gem 'capistrano', '~> 3.1'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rvm'
 
 group :test, :development do
   gem 'cucumber-rails', :require => false
