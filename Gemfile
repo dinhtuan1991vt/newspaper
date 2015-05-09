@@ -40,6 +40,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'pg', '~> 0.18.1'
 gem 'highline', '~> 1.7.2'
 gem 'sqlite3'
+gem 'paperclip-av-transcoder'
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.1'

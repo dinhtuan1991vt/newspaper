@@ -10,16 +10,18 @@ class Article < ActiveRecord::Base
   validates_with AttachmentSizeValidator, :attributes => :image, :less_than => 5.megabytes
 
 
-  mount_uploader :video, VideoUploader
-  validate :video_size
-
-  def video_size
-    if !video.file.nil? && video.file.size.to_f/(1000*1000) > 30
-      errors.add(:video, "You cannot upload a file greater than 30MB")
-    end
-  end
+  has_attached_file :video, :styles => {
+    :thumb => { :geometry => "100x100#", :format => 'jpg', :time => 1 }
+  }, :default_url => "", :processors => [:transcoder]
+  validates_attachment_content_type :video, :content_type => ["video/mp4", "video/x-flv", "video/avi"]
+  validates_attachment_file_name :video, :matches => [/mp4\Z/, /flv\Z/, /avi\Z/]
+  validates_with AttachmentSizeValidator, :attributes => :video, :less_than => 30.megabytes
 
   def image_url
     image.url(:large)
   end
+
+  def video_thumb_url
+    video.url(:thumb)
+  end 
 end

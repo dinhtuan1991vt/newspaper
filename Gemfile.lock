@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    av (0.9.0)
+      cocaine (~> 0.5.3)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -162,6 +164,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-av-transcoder (0.6.4)
+      av (~> 0.9.0)
+      paperclip (>= 2.5.2)
     pg (0.18.1)
     rack (1.6.1)
     rack-test (0.6.3)
@@ -289,6 +294,7 @@ DEPENDENCIES
   kaminari
   mini_magick
   paperclip (~> 4.2)
+  paperclip-av-transcoder
   pg (~> 0.18.1)
   rails (= 4.2.1)
   recaptcha

@@ -21,8 +21,8 @@
 
         <img src="${image_url}">
         <p></p>
-        {{if video.url != null}}
-          <video src="${video.url}" controls></video>
+        {{if video != ""}}
+          <video src="${video}" controls></video>
         {{/if}}
         <p>${text}</p>
       </div>
